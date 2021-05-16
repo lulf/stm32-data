@@ -235,6 +235,7 @@ perimap = [
     ('STM32L4.*:SYS:.*', 'syscfg_l4/SYSCFG'),
     ('STM32H7.*:SYS:.*', 'syscfg_h7/SYSCFG'),
     ('.*SDMMC:sdmmc2_v1_0', 'sdmmc_v2/SDMMC'),
+    ('.*:STM32H7_rcc_v1_0', 'rcc_h7/RCC'),
 ]
 
 
@@ -325,7 +326,7 @@ def parse_chips():
                     'flash': flash,
                     'ram': ram,
                     'gpio_af': gpio_af,
-                    'rcc': rcc, # temporarily stashing it here
+                    'rcc': rcc,  # temporarily stashing it here
                     'packages': [],
                     'peripherals': {},
                     # 'peripherals': peris,
@@ -374,7 +375,7 @@ def parse_chips():
 
             if pname in clocks[rcc]:
                 p['clock'] = clocks[rcc][pname]
-            #else:
+            # else:
                 #print( f'peri {pname} -> no clock')
 
             if block := match_peri(chip_name+':'+pname+':'+pkind):
@@ -463,7 +464,9 @@ def parse_gpio_af():
         with open('data/gpio_af/'+ff+'.yaml', 'w') as f:
             f.write(yaml.dump(pins))
 
+
 clocks = {}
+
 
 def parse_clocks():
     for f in glob('sources/cubedb/mcu/IP/RCC-*rcc_v1_0_Modes.xml'):
