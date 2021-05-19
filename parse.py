@@ -236,6 +236,7 @@ perimap = [
     ('STM32H7.*:SYS:.*', 'syscfg_h7/SYSCFG'),
     ('.*SDMMC:sdmmc2_v1_0', 'sdmmc_v2/SDMMC'),
     ('.*:STM32H7_rcc_v1_0', 'rcc_h7/RCC'),
+    ('.*:STM32H7_pwr_v1_0', 'pwr_h7/PWR'),
 ]
 
 
