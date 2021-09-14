@@ -356,6 +356,13 @@ cores:
     RTC:
       address: 0x40002800
       kind: RTC:rtc2_v2_5
+      clock_sources:
+      - LSE
+      - LSI
+      - DIV2
+      - DIV4
+      - DIV8
+      - DIV16
       pins:
       - pin: PC13
         signal: OUT_ALARM

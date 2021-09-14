@@ -151,6 +151,10 @@ cores:
       address: 0x40005400
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PA1
@@ -237,6 +241,11 @@ cores:
     LPUART1:
       address: 0x40004800
       kind: LPUART:sci3_v1_1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       pins:
       - pin: PA2
         signal: TX
@@ -299,6 +308,13 @@ cores:
     RTC:
       address: 0x40002800
       kind: RTC:rtc2_v2_4
+      clock_sources:
+      - LSE
+      - LSI
+      - DIV2
+      - DIV4
+      - DIV8
+      - DIV16
       pins:
       - pin: PA0
         signal: TAMP2
@@ -491,6 +507,11 @@ cores:
       address: 0x40004400
       kind: USART:sci3_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PA0

@@ -34,6 +34,10 @@ cores:
     ADC1:
       address: 0x40012400
       kind: ADC:aditf4_v3_0
+      clock_sources:
+      - SYSCLK
+      - HSI
+      - PLLADC
       block: adc_g0/ADC
       pins:
       - pin: PA0
@@ -217,6 +221,10 @@ cores:
     FDCAN1:
       address: 0x40006400
       kind: FDCAN:fdcan1_v1_0
+      clock_sources: &id001
+      - PCLK1
+      - PLL
+      - HSE
       pins:
       - pin: PB9
         signal: TX
@@ -253,6 +261,7 @@ cores:
     FDCAN2:
       address: 0x40006800
       kind: FDCAN:fdcan1_v1_0
+      clock_sources: *id001
       pins:
       - pin: PC2
         signal: RX
@@ -312,6 +321,10 @@ cores:
       address: 0x40005400
       kind: I2C:i2c2_v1_1
       clock: APB
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PB9
@@ -352,6 +365,10 @@ cores:
       address: 0x40005800
       kind: I2C:i2c2_v1_1
       clock: APB
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PA6
@@ -447,6 +464,11 @@ cores:
       address: 0x40007c00
       kind: LPTIM:G0xx_lptimer1_v1_4
       clock: APB
+      clock_sources:
+      - PCLK1
+      - LSI
+      - HSI
+      - LSE
       pins:
       - pin: PC12
         signal: IN1
@@ -490,6 +512,11 @@ cores:
       address: 0x40009400
       kind: LPTIM:G0xx_lptimer1_v1_4
       clock: APB
+      clock_sources:
+      - PCLK1
+      - LSI
+      - HSI
+      - LSE
       pins:
       - pin: PC0
         signal: IN1
@@ -527,6 +554,11 @@ cores:
       address: 0x40008000
       kind: LPUART:sci3_v1_4
       clock: APB
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       pins:
       - pin: PF4
         signal: TX
@@ -591,6 +623,11 @@ cores:
     LPUART2:
       address: 0x40008400
       kind: LPUART:sci3_v1_4
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       pins:
       - pin: PF2
         signal: DE
@@ -720,6 +757,10 @@ cores:
     RTC:
       address: 0x40002800
       kind: RTC:rtc3_v1_0
+      clock_sources:
+      - LSE
+      - LSI
+      - DIV32
       pins:
       - pin: PE6
         signal: TAMP_IN3
@@ -1617,6 +1658,11 @@ cores:
       address: 0x40013800
       kind: USART:sci3_v2_1
       clock: APB
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PC4
@@ -1680,6 +1726,11 @@ cores:
       address: 0x40004400
       kind: USART:sci3_v2_1
       clock: APB
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PA0
@@ -1743,6 +1794,11 @@ cores:
       address: 0x40004800
       kind: USART:sci3_v2_1
       clock: APB
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PB9

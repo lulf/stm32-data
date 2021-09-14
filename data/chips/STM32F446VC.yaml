@@ -600,6 +600,11 @@ cores:
     SAI1:
       address: 0x40015800
       kind: SAI:sai1_v1_1
+      clock_sources:
+      - EXT
+      - PLLR
+      - PLLI2S
+      - PLLSAI
       pins:
       - pin: PE2
         signal: MCLK_A
@@ -660,6 +665,11 @@ cores:
     SAI2:
       address: 0x40015c00
       kind: SAI:sai1_v1_1
+      clock_sources:
+      - PLLSRC
+      - PLLR
+      - PLLI2S
+      - PLLSAI
       pins:
       - pin: PA1
         signal: MCLK_B
@@ -713,6 +723,9 @@ cores:
       address: 0x40012c00
       kind: SDIO:sdmmc_v1_2
       clock: APB2
+      clock_sources:
+      - CLK48
+      - SYSCLK
       pins:
       - pin: PB0
         signal: D1
@@ -775,6 +788,9 @@ cores:
       address: 0x40004000
       kind: SPDIFRX:spdifrx1_v1_0
       clock: APB1
+      clock_sources:
+      - PLLR
+      - PLLI2SP
       pins:
       - pin: PC4
         signal: IN2

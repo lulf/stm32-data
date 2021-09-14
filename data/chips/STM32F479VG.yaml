@@ -669,6 +669,10 @@ cores:
       address: 0x40015800
       kind: SAI:sai1_v1_1
       clock: APB2
+      clock_sources:
+      - PLLSAI
+      - PLLI2S
+      - EXT
       pins:
       - pin: PE2
         signal: MCLK_A
@@ -696,6 +700,9 @@ cores:
       address: 0x40012c00
       kind: SDIO:sdmmc_v1_2
       clock: APB2
+      clock_sources:
+      - CLK48
+      - SYSCLK
       pins:
       - pin: PC6
         signal: D6

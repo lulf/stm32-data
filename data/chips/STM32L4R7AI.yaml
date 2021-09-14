@@ -34,6 +34,9 @@ cores:
     ADC1:
       address: 0x50040000
       kind: ADC:aditf5_v2_0
+      clock_sources:
+      - PLLSAI1
+      - SYSCLK
       block: adc_v3/ADC
       pins:
       - pin: PC4
@@ -430,6 +433,10 @@ cores:
       address: 0x40005400
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PA14
@@ -476,6 +483,10 @@ cores:
       address: 0x40005800
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PH6
@@ -525,6 +536,10 @@ cores:
       address: 0x40005c00
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PB4
@@ -577,6 +592,10 @@ cores:
       address: 0x40008400
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PA14
@@ -628,6 +647,11 @@ cores:
     LPTIM1:
       address: 0x40007c00
       kind: LPTIM:L4_lptimer1_v1_0
+      clock_sources:
+      - PCLK
+      - LSI
+      - HSI
+      - LSE
       pins:
       - pin: PA14
         signal: OUT
@@ -674,6 +698,11 @@ cores:
       address: 0x40009400
       kind: LPTIM:L4_lptimer1_v1_0
       clock: APB1
+      clock_sources:
+      - PCLK
+      - LSI
+      - HSI
+      - LSE
       pins:
       - pin: PA8
         signal: OUT
@@ -1145,6 +1174,11 @@ cores:
     RNG:
       address: 0x50060800
       kind: RNG:rng1_v2_0
+      clock_sources:
+      - PLLSAI1
+      - PLL
+      - MSI
+      - HSI48
       block: rng_v1/RNG
       interrupts:
         GLOBAL: RNG
@@ -1152,6 +1186,10 @@ cores:
     RTC:
       address: 0x40002800
       kind: RTC:rtc2_v2_4
+      clock_sources:
+      - DIV32
+      - LSE
+      - LSI
       pins:
       - pin: PC13
         signal: OUT_ALARM
@@ -1179,6 +1217,12 @@ cores:
     SAI1:
       address: 0x40015400
       kind: SAI:sai1_v2_0
+      clock_sources:
+      - PLLSAI1
+      - PLLSAI2
+      - PLL
+      - PIN
+      - HSI
       pins:
       - pin: PB4
         signal: MCLK_B
@@ -1322,6 +1366,12 @@ cores:
     SAI2:
       address: 0x40015800
       kind: SAI:sai1_v2_0
+      clock_sources:
+      - PLLSAI1
+      - PLLSAI2
+      - PLL
+      - PIN
+      - HSI
       pins:
       - pin: PA15
         signal: FS_B
@@ -1412,6 +1462,11 @@ cores:
       address: 0x50062400
       kind: SDMMC:sdmmc2_v1_1
       clock: APB2
+      clock_sources: &id001
+      - PLLSAI1
+      - PLL
+      - MSI
+      - HSI48
       pins:
       - pin: PB8
         signal: CKIN
@@ -2382,6 +2437,11 @@ cores:
       address: 0x40004c00
       kind: UART:sci2_v3_0
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PA15
@@ -2418,6 +2478,11 @@ cores:
       address: 0x40005000
       kind: UART:sci2_v3_0
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PB4
@@ -2448,6 +2513,11 @@ cores:
       address: 0x40013800
       kind: USART:sci3_v1_2
       clock: APB2
+      clock_sources:
+      - PCLK2
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PB4
@@ -2526,6 +2596,11 @@ cores:
       address: 0x40004400
       kind: USART:sci3_v1_2
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PA15
@@ -2586,6 +2661,11 @@ cores:
       address: 0x40004800
       kind: USART:sci3_v1_2
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PA15
@@ -2684,6 +2764,7 @@ cores:
     USB_OTG_FS:
       address: 0x50000000
       kind: USB_OTG_FS:otgfs1_v3_0
+      clock_sources: *id001
       interrupts:
         GLOBAL: OTG_FS
     VREFINTCAL:

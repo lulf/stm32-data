@@ -600,6 +600,9 @@ cores:
     RNG:
       address: 0x50060800
       kind: RNG:rng1_v1_1
+      clock_sources:
+      - PLLQ
+      - PLLI2SQ
       block: rng_v1/RNG
       interrupts:
         GLOBAL: RNG
@@ -691,6 +694,9 @@ cores:
       address: 0x40012c00
       kind: SDIO:sdmmc_v1_2
       clock: APB2
+      clock_sources:
+      - CLK48
+      - SYSCLK
       pins:
       - pin: PA6
         signal: CMD

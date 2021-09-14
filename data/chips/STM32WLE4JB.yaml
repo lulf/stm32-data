@@ -26,6 +26,10 @@ cores:
     ADC:
       address: 0x40012400
       kind: ADC:aditf4_v3_0_WL
+      clock_sources:
+      - HSI
+      - PLL
+      - SYSCLK
       pins:
       - pin: PA14
         signal: IN10
@@ -209,6 +213,10 @@ cores:
       address: 0x40005400
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PA14
@@ -251,6 +259,10 @@ cores:
     I2C2:
       address: 0x40005800
       kind: I2C:i2c2_v1_1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PA12
@@ -285,6 +297,10 @@ cores:
       address: 0x40005c00
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PB4
@@ -338,6 +354,11 @@ cores:
       address: 0x40007c00
       kind: LPTIM:WL5_lptimer1_v2_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - LSI
+      - HSI
+      - LSE
       pins:
       - pin: PA14
         signal: OUT
@@ -375,6 +396,11 @@ cores:
       address: 0x40009400
       kind: LPTIM:WL5_lptimer1_v2_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - LSI
+      - HSI
+      - LSE
       pins:
       - pin: PC3
         signal: ETR
@@ -399,6 +425,11 @@ cores:
     LPTIM3:
       address: 0x40009800
       kind: LPTIM:WL5_lptimer1_v2_1
+      clock_sources:
+      - PCLK1
+      - LSI
+      - HSI
+      - LSE
       pins:
       - pin: PA12
         signal: IN1
@@ -414,6 +445,11 @@ cores:
     LPUART1:
       address: 0x40008000
       kind: LPUART:sci3_v1_3
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       pins:
       - pin: PB13
         signal: CTS
@@ -503,6 +539,11 @@ cores:
     RNG:
       address: 0x58001000
       kind: RNG:rng1_v3_1
+      clock_sources:
+      - PLL
+      - LSI
+      - LSE
+      - MSI
       block: rng_v1/RNG
       interrupts:
         GLOBAL: RNG
@@ -510,6 +551,10 @@ cores:
     RTC:
       address: 0x40002800
       kind: RTC:rtc3_v3_0
+      clock_sources:
+      - LSE
+      - LSI
+      - DIV32
       pins:
       - pin: PB3
         signal: TAMP_IN3
@@ -583,6 +628,10 @@ cores:
       address: 0x40003800
       kind: SPI:spi2s1_v3_5
       clock: APB1
+      clock_sources:
+      - PLL
+      - HSI
+      - PIN
       block: spi_v2/SPI
       pins:
       - pin: PB15
@@ -873,6 +922,11 @@ cores:
       address: 0x40013800
       kind: USART:sci3_v2_1
       clock: APB2
+      clock_sources:
+      - PCLK2
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PA12
@@ -929,6 +983,11 @@ cores:
     USART2:
       address: 0x40004400
       kind: USART:sci3_v2_1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PA0

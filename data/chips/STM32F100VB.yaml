@@ -204,6 +204,10 @@ cores:
     RTC:
       address: 0x40002800
       kind: RTC:rtc1_v1_1
+      clock_sources:
+      - LSE
+      - LSI
+      - DIV128
       pins:
       - pin: PC13
         signal: OUT

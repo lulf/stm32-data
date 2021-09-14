@@ -34,6 +34,10 @@ cores:
     ADC1:
       address: 0x50040000
       kind: ADC:aditf5_v2_0
+      clock_sources: &id001
+      - PLLSAI1
+      - PLLSAI2
+      - SYSCLK
       block: adc_v3/ADC
       pins:
       - pin: PC2
@@ -79,6 +83,7 @@ cores:
     ADC2:
       address: 0x50040100
       kind: ADC:aditf5_v2_0
+      clock_sources: *id001
       block: adc_v3/ADC
       pins:
       - pin: PC2
@@ -124,6 +129,7 @@ cores:
     ADC3:
       address: 0x50040200
       kind: ADC:aditf5_v2_0
+      clock_sources: *id001
       block: adc_v3/ADC
       pins:
       - pin: PC2
@@ -293,6 +299,10 @@ cores:
       address: 0x40005400
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PG14
@@ -334,6 +344,10 @@ cores:
       address: 0x40005800
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PB14
@@ -365,6 +379,10 @@ cores:
       address: 0x40005c00
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PC1
@@ -540,6 +558,11 @@ cores:
     LPTIM1:
       address: 0x40007c00
       kind: LPTIM:L4_lptimer1_v1_0
+      clock_sources:
+      - PCLK
+      - LSI
+      - HSI
+      - LSE
       pins:
       - pin: PB7
         signal: IN2
@@ -580,6 +603,11 @@ cores:
       address: 0x40009400
       kind: LPTIM:L4_lptimer1_v1_0
       clock: APB1
+      clock_sources:
+      - PCLK
+      - LSI
+      - HSI
+      - LSE
       pins:
       - pin: PA8
         signal: OUT
@@ -705,6 +733,10 @@ cores:
     RNG:
       address: 0x50060800
       kind: RNG:rng1_v1_1
+      clock_sources:
+      - PLLSAI1
+      - PLL
+      - MSI
       block: rng_v1/RNG
       interrupts:
         GLOBAL: RNG
@@ -712,6 +744,10 @@ cores:
     RTC:
       address: 0x40002800
       kind: RTC:rtc2_v2_4
+      clock_sources:
+      - LSE
+      - LSI
+      - DIV32
       pins:
       - pin: PC13
         signal: OUT_ALARM
@@ -737,6 +773,11 @@ cores:
     SAI1:
       address: 0x40015400
       kind: SAI:sai1_v1_1
+      clock_sources:
+      - PLLSAI1
+      - PLLSAI2
+      - PLL
+      - PIN
       pins:
       - pin: PB3
         signal: SCK_B
@@ -794,6 +835,11 @@ cores:
     SAI2:
       address: 0x40015800
       kind: SAI:sai1_v1_1
+      clock_sources:
+      - PLLSAI1
+      - PLLSAI2
+      - PLL
+      - PIN
       pins:
       - pin: PA15
         signal: FS_B
@@ -863,6 +909,10 @@ cores:
     SDMMC1:
       address: 0x40012800
       kind: SDMMC:sdmmc_v1_3
+      clock_sources:
+      - PLLSAI1
+      - PLL
+      - MSI
       pins:
       - pin: PD2
         signal: CMD
@@ -1053,6 +1103,9 @@ cores:
       address: 0x40008800
       kind: SWPMI:swp1_v1_0_1
       clock: APB1
+      clock_sources:
+      - PCLK
+      - HSI
       pins:
       - pin: PB15
         signal: SUSPEND
@@ -1669,6 +1722,11 @@ cores:
       address: 0x40004c00
       kind: UART:sci2_v2_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PA15
@@ -1705,6 +1763,11 @@ cores:
       address: 0x40005000
       kind: UART:sci2_v2_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PD2
@@ -1735,6 +1798,11 @@ cores:
       address: 0x40013800
       kind: USART:sci3_v1_1
       clock: APB2
+      clock_sources:
+      - PCLK2
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PG9
@@ -1808,6 +1876,11 @@ cores:
       address: 0x40004400
       kind: USART:sci3_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PD5
@@ -1856,6 +1929,11 @@ cores:
       address: 0x40004800
       kind: USART:sci3_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PD2
@@ -1927,6 +2005,10 @@ cores:
     USB_OTG_FS:
       address: 0x50000000
       kind: USB_OTG_FS:otgfs1_v2_0
+      clock_sources:
+      - PLLSAI1
+      - PLL
+      - MSI
       interrupts:
         GLOBAL: OTG_FS
     VREFINTCAL:

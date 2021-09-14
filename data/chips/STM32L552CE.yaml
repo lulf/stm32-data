@@ -40,6 +40,9 @@ cores:
     ADC1:
       address: 0x42028000
       kind: ADC:aditf5_v2_0
+      clock_sources: &id001
+      - PLLSAI1
+      - SYSCLK
       block: adc_v3/ADC
       pins:
       - pin: PA0
@@ -71,6 +74,7 @@ cores:
     ADC2:
       address: 0x42028100
       kind: ADC:aditf5_v2_0
+      clock_sources: *id001
       block: adc_v3/ADC
       pins:
       - pin: PA0
@@ -201,6 +205,10 @@ cores:
     FDCAN1:
       address: 0x4000a400
       kind: FDCAN:fdcan1_v1_0
+      clock_sources:
+      - PLL
+      - PLLSAI1
+      - HSE
       pins:
       - pin: PA11
         signal: RX
@@ -262,6 +270,10 @@ cores:
       address: 0x40005400
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PA1
@@ -296,6 +308,10 @@ cores:
       address: 0x40005800
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PB10
@@ -324,6 +340,10 @@ cores:
       address: 0x40005c00
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PA7
@@ -349,6 +369,10 @@ cores:
       address: 0x40008400
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PB10
@@ -384,6 +408,11 @@ cores:
     LPTIM1:
       address: 0x40007c00
       kind: LPTIM:L5_lptimer1_v2_0
+      clock_sources:
+      - PCLK1
+      - LSI
+      - HSI
+      - LSE
       pins:
       - pin: PB2
         signal: OUT
@@ -406,6 +435,11 @@ cores:
       address: 0x40009400
       kind: LPTIM:L5_lptimer1_v2_0
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - LSI
+      - HSI
+      - LSE
       pins:
       - pin: PA4
         signal: OUT
@@ -424,6 +458,11 @@ cores:
     LPTIM3:
       address: 0x40009800
       kind: LPTIM:L5_lptimer1_v2_0
+      clock_sources:
+      - PCLK1
+      - LSI
+      - HSI
+      - LSE
       pins:
       - pin: PB10
         signal: OUT
@@ -440,6 +479,11 @@ cores:
       address: 0x40008000
       kind: LPUART:sci3_v1_3
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       pins:
       - pin: PA2
         signal: TX
@@ -480,6 +524,10 @@ cores:
     OCTOSPI1:
       address: 0x44021000
       kind: OCTOSPI:octospi_v1_0L5
+      clock_sources:
+      - MSI
+      - SYSCLK
+      - PLL
       pins:
       - pin: PA1
         signal: DQS
@@ -578,6 +626,7 @@ cores:
     RNG:
       address: 0x420c0800
       kind: RNG:rng1_v2_0
+      clock_sources: []
       block: rng_v1/RNG
       interrupts:
         GLOBAL: RNG
@@ -585,6 +634,10 @@ cores:
     RTC:
       address: 0x40002800
       kind: RTC:rtc2_v2_8
+      clock_sources:
+      - DIV32
+      - LSE
+      - LSI
       pins:
       - pin: PC13
         signal: OUT1
@@ -1325,6 +1378,11 @@ cores:
       address: 0x40004c00
       kind: UART:sci2_v3_0
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PA0
@@ -1393,6 +1451,11 @@ cores:
       address: 0x40013800
       kind: USART:sci3_v2_0
       clock: APB2
+      clock_sources:
+      - PCLK2
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PA8
@@ -1450,6 +1513,11 @@ cores:
       address: 0x40004400
       kind: USART:sci3_v2_0
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PA0
@@ -1489,6 +1557,11 @@ cores:
       address: 0x40004800
       kind: USART:sci3_v2_0
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PA6
@@ -1542,6 +1615,11 @@ cores:
     USB:
       address: 0x4000d400
       kind: USB:usb1_v2_2
+      clock_sources:
+      - PLLSAI1
+      - PLL
+      - MSI
+      - HSI48
       pins:
       - pin: PA11
         signal: DM

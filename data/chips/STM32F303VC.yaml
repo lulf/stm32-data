@@ -422,6 +422,9 @@ cores:
       address: 0x40005400
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PB5
@@ -457,6 +460,9 @@ cores:
       address: 0x40005800
       kind: I2C:i2c2_v1_1
       clock: APB1
+      clock_sources:
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PF6
@@ -632,6 +638,10 @@ cores:
     RTC:
       address: 0x40002800
       kind: RTC:rtc2_v2_4
+      clock_sources:
+      - LSE
+      - LSI
+      - DIV32
       pins:
       - pin: PC13
         signal: OUT_ALARM
@@ -1459,6 +1469,11 @@ cores:
       address: 0x40004c00
       kind: UART:sci2_v2_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PC11
@@ -1478,6 +1493,11 @@ cores:
       address: 0x40005000
       kind: UART:sci2_v2_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PC12
@@ -1491,6 +1511,11 @@ cores:
     USART1:
       address: 0x40013800
       kind: USART:sci2_v2_1
+      clock_sources:
+      - PCLK2
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PE1
@@ -1541,6 +1566,11 @@ cores:
       address: 0x40004400
       kind: USART:sci2_v2_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PB3
@@ -1599,6 +1629,11 @@ cores:
       address: 0x40004800
       kind: USART:sci2_v2_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PC12

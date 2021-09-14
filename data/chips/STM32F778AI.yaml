@@ -503,6 +503,10 @@ cores:
       address: 0x40005400
       kind: I2C:i2c2_v1_1F7
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PB5
@@ -538,6 +542,10 @@ cores:
       address: 0x40005800
       kind: I2C:i2c2_v1_1F7
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PF0
@@ -582,6 +590,10 @@ cores:
       address: 0x40005c00
       kind: I2C:i2c2_v1_1F7
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PC9
@@ -617,6 +629,10 @@ cores:
       address: 0x40006000
       kind: I2C:i2c2_v1_1F7
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
       block: i2c_v2/I2C
       pins:
       - pin: PB6
@@ -697,6 +713,11 @@ cores:
     LPTIM1:
       address: 0x40002400
       kind: LPTIM:F7_lptimer1_v1_1
+      clock_sources:
+      - PCLK
+      - LSI
+      - HSI
+      - LSE
       pins:
       - pin: PE1
         signal: IN2
@@ -1067,6 +1088,39 @@ cores:
     RTC:
       address: 0x40002800
       kind: RTC:rtc2_v2_6
+      clock_sources:
+      - LSE
+      - LSI
+      - DIV2
+      - DIV3
+      - DIV4
+      - DIV5
+      - DIV6
+      - DIV7
+      - DIV8
+      - DIV9
+      - DIV10
+      - DIV11
+      - DIV12
+      - DIV13
+      - DIV14
+      - DIV15
+      - DIV16
+      - DIV17
+      - DIV18
+      - DIV19
+      - DIV20
+      - DIV21
+      - DIV22
+      - DIV23
+      - DIV24
+      - DIV25
+      - DIV26
+      - DIV27
+      - DIV28
+      - DIV29
+      - DIV30
+      - DIV31
       pins:
       - pin: PC13
         signal: OUT
@@ -1087,6 +1141,11 @@ cores:
       address: 0x40015800
       kind: SAI:sai1_v1_1
       clock: APB2
+      clock_sources:
+      - PLLSAI
+      - PLLI2S
+      - PIN
+      - PLLSRC
       pins:
       - pin: PE4
         signal: FS_A
@@ -1136,6 +1195,11 @@ cores:
       address: 0x40015c00
       kind: SAI:sai1_v1_1
       clock: APB2
+      clock_sources:
+      - PLLSAI
+      - PLLI2S
+      - PIN
+      - PLLSRC
       pins:
       - pin: PG10
         signal: SD_B
@@ -1224,6 +1288,9 @@ cores:
       address: 0x40012c00
       kind: SDMMC:sdmmc_v1_3
       clock: APB2
+      clock_sources:
+      - CLK48
+      - SYSCLK
       pins:
       - pin: PC10
         signal: D2
@@ -1277,6 +1344,9 @@ cores:
       address: 0x40011c00
       kind: SDMMC:sdmmc_v1_3
       clock: APB2
+      clock_sources:
+      - CLK48
+      - SYSCLK
       pins:
       - pin: PG10
         signal: D1
@@ -2212,6 +2282,11 @@ cores:
       address: 0x40004c00
       kind: UART:sci2_v2_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PD0
@@ -2277,6 +2352,11 @@ cores:
       address: 0x40005000
       kind: UART:sci2_v2_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PB5
@@ -2325,6 +2405,11 @@ cores:
       address: 0x40007800
       kind: UART:sci2_v2_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PB4
@@ -2367,6 +2452,11 @@ cores:
       address: 0x40007c00
       kind: UART:sci2_v2_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PE1
@@ -2397,6 +2487,11 @@ cores:
       address: 0x40011000
       kind: USART:sci3_v1_1
       clock: APB2
+      clock_sources:
+      - PCLK2
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PB6
@@ -2444,6 +2539,11 @@ cores:
       address: 0x40004400
       kind: USART:sci3_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PD4
@@ -2494,6 +2594,11 @@ cores:
       address: 0x40004800
       kind: USART:sci3_v1_1
       clock: APB1
+      clock_sources:
+      - PCLK1
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PC10
@@ -2556,6 +2661,11 @@ cores:
       address: 0x40011400
       kind: USART:sci3_v1_1
       clock: APB2
+      clock_sources:
+      - PCLK2
+      - SYSCLK
+      - HSI
+      - LSE
       block: usart_v2/USART
       pins:
       - pin: PG9
@@ -2607,6 +2717,9 @@ cores:
     USB_OTG_FS:
       address: 0x50000000
       kind: USB_OTG_FS:otgfs1_v1_2
+      clock_sources:
+      - PLLSAIP
+      - PLL
       interrupts:
         GLOBAL: OTG_FS_WKUP
     USB_OTG_HS:

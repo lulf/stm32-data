@@ -209,6 +209,11 @@ cores:
     LPTIM1:
       address: 0x40002400
       kind: LPTIM:F410_lptimer1_v1_1
+      clock_sources:
+      - PCLK
+      - LSI
+      - HSI
+      - LSE
       pins:
       - pin: PB5
         signal: IN1
