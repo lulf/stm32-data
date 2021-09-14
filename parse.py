@@ -856,6 +856,9 @@ def parse_chips():
                 if pname in clocks[rcc]:
                     p['clock'] = clocks[rcc][pname]
 
+                if pname in peri_clock_sources[rcc]:
+                    p['clock_sources'] = peri_clock_sources[rcc][pname]
+
                 if block := match_peri(chip_name + ':' + pname + ':' + pkind):
                     p['block'] = block
 
@@ -1227,6 +1230,7 @@ def parse_dma():
 
 
 clocks = {}
+peri_clock_sources = {}
 
 
 def parse_clocks():
@@ -1235,6 +1239,7 @@ def parse_clocks():
         ff = removesuffix(ff, '_rcc_v1_0_Modes.xml')
         ff = removesuffix(ff, '-rcc_v1_0_Modes.xml')
         chip_clocks = {}
+        clock_sources = {}
         r = xmltodict.parse(open(f, 'rb'))
         for ref in r['IP']['RefParameter']:
             name = ref['@Name']
@@ -1244,8 +1249,20 @@ def parse_clocks():
                 peripherals = peripherals.split(",")
                 for p in peripherals:
                     chip_clocks[p] = name
+            if (name.endswith("ClockSelection") or name.endswith("CLockSelection")) and '@IP' in ref:
+                peripherals = ref['@IP'].split(",");
+                variants = []
+                if 'PossibleValue' in ref:
+                    for value in ref['PossibleValue']:
+                        if isinstance(value, dict) and '@Value' in value:
+                            variant = str(value['@Value']).rsplit("_", 1)
+                            if len(variant) > 1:
+                                variants.append(variant[1])
+                    for p in peripherals:
+                        clock_sources[p] = variants
 
         clocks[ff] = chip_clocks
+        peri_clock_sources[ff] = clock_sources
 
 
 peripheral_to_clock = {}
